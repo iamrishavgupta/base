@@ -1,11 +1,14 @@
-import { minikitConfig } from '@/minikit.config';
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
 
 export async function GET() {
   const manifest = {
-    accountAssociation: minikitConfig.accountAssociation,
+    accountAssociation: {
+      header: "",
+      payload: "",
+      signature: "",
+    },
     frame: {
-      version: "1",
+      version: "1.0.0",
       name: "Birthday Calendar",
       iconUrl: "https://base-mini-app-swart.vercel.app/icon.png",
       homeUrl: "https://base-mini-app-swart.vercel.app/",
