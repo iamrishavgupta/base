@@ -1,32 +1,25 @@
-const ROOT_URL = process.env.NEXT_PUBLIC_ROOT_URL || 'http://localhost:3000';
+import { minikitConfig } from '@/minikit.config';
 
-export const minikitConfig = {
-  accountAssociation: {
-    // Fill this after signing manifest
-    "header": "",
-    "payload": "",
-    "signature": ""
-  },
-  baseBuilder: {
-    ownerAddress: "0x0EC8f455AFBE870092B0e65165FffFeE8c29C688"
-  },
-  miniapp: {
-    version: "1",
-    name: "Birthday Calendar",
-    subtitle: "Never Forget a Birthday!",
-    description: "Track all your friends' birthdays in one beautiful place. Get reminders and never miss celebrating with your loved ones.",
-    screenshotUrls: [`${ROOT_URL}/screenshot.png`],
-    iconUrl: `${ROOT_URL}/icon.png`,
-    splashImageUrl: `${ROOT_URL}/hero.png`,
-    splashBackgroundColor: "#a855f7",
-    homeUrl: ROOT_URL,
-    webhookUrl: `${ROOT_URL}/api/webhook`,
-    primaryCategory: "productivity",
-    tags: ["birthday", "calendar", "reminders", "social", "friends"],
-    heroImageUrl: `${ROOT_URL}/hero.png`,
-    tagline: "Never forget a birthday again",
-    ogTitle: "Birthday Calendar - Track Friends' Birthdays",
-    ogDescription: "Beautiful birthday tracking app to remember all your friends' special days",
-    ogImageUrl: `${ROOT_URL}/hero.png`,
-  },
-} as const;
+import { NextResponse } from 'next/server';
+
+export async function GET() {
+  const manifest = {
+    accountAssociation: minikitConfig.accountAssociation,
+    frame: {
+      version: "1.0.0",
+      name: minikitConfig.miniapp.name,
+      iconUrl: minikitConfig.miniapp.iconUrl,
+      homeUrl: minikitConfig.miniapp.homeUrl,
+      imageUrl: minikitConfig.miniapp.heroImageUrl,
+      buttonTitle: "Open Calendar",
+      splashImageUrl: minikitConfig.miniapp.splashImageUrl,
+      splashBackgroundColor: minikitConfig.miniapp.splashBackgroundColor,
+      webhookUrl: minikitConfig.miniapp.webhookUrl,
+    },
+    baseBuilder: {
+      ownerAddress: "0x0EC8f545AFBE870092B0e65165FffFeE8c29C688",
+    },
+  };
+
+  return NextResponse.json(manifest);
+}
