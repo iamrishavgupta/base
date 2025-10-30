@@ -7,6 +7,9 @@ export const minikitConfig = {
     "payload": "",
     "signature": ""
   },
+  baseBuilder: {
+    ownerAddress: "0x0EC8f455AFBE870092B0e65165FffFeE8c29C688"
+  },
   miniapp: {
     version: "1",
     name: "Birthday Calendar",
