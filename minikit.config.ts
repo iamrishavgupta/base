@@ -1,20 +1,16 @@
 export const minikitConfig = {
-  accountAssociation: {
-    header: "",
-    payload: "",
-    signature: ""
-  },
   miniapp: {
     version: "1",
     name: "Birthday Calendar",
-    description: "A simple app to track and celebrate birthdays 🎂", // ✅ Added
-    ogTitle: "Birthday Calendar", // ✅ Added
-    ogDescription: "Never miss a birthday again! 🎉", // ✅ Added
-    iconUrl: "/icon.png",
-    homeUrl: "https://your-vercel-url.vercel.app",
-    heroImageUrl: "/hero.png",
-    splashImageUrl: "/splash.png",
+    description: "Track birthdays easily!",
+    ogTitle: "🎂 Birthday Calendar",
+    ogDescription: "Never forget a birthday again!",
+    ogImageUrl: "https://your-domain.com/og-image.png", // ✅ Add this line
+    iconUrl: "https://your-domain.com/icon.png",
+    homeUrl: "https://birthday.vercel.app",
+    heroImageUrl: "https://your-domain.com/hero.png",
+    splashImageUrl: "https://your-domain.com/splash.png",
     splashBackgroundColor: "#ffffff",
-    webhookUrl: "https://your-vercel-url.vercel.app/api/webhook"
-  },
+    webhookUrl: "https://api.birthday.vercel.app/webhook"
+  }
 };
