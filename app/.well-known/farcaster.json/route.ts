@@ -1,22 +1,19 @@
-import { NextResponse } from "next/server";
+import { minikitConfig } from '@/minikit.config';
+import { NextResponse } from 'next/server';
 
 export async function GET() {
   const manifest = {
-    accountAssociation: {
-      header: "",
-      payload: "",
-      signature: "",
-    },
+    accountAssociation: minikitConfig.accountAssociation,
     frame: {
-      version: "1.0.0",
-      name: "Birthday Calendar",
-      iconUrl: "https://base-mini-app-swart.vercel.app/icon.png",
-      homeUrl: "https://base-mini-app-swart.vercel.app/",
-      imageUrl: "https://base-mini-app-swart.vercel.app/hero.png",
+      version: "1", // changed from "1.0.0"
+      name: minikitConfig.miniapp.name,
+      iconUrl: minikitConfig.miniapp.iconUrl,
+      homeUrl: minikitConfig.miniapp.homeUrl,
+      imageUrl: minikitConfig.miniapp.heroImageUrl,
       buttonTitle: "Open Calendar",
-      splashImageUrl: "https://base-mini-app-swart.vercel.app/hero.png",
-      splashBackgroundColor: "#a855f7",
-      webhookUrl: "https://base-mini-app-swart.vercel.app/api/webhook",
+      splashImageUrl: minikitConfig.miniapp.splashImageUrl,
+      splashBackgroundColor: minikitConfig.miniapp.splashBackgroundColor,
+      webhookUrl: minikitConfig.miniapp.webhookUrl,
     },
     baseBuilder: {
       ownerAddress: "0x0EC8f545AFBE870092B0e65165FffFeE8c29C688",
